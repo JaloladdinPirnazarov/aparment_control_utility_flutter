@@ -57,6 +57,25 @@ class Actions_ {
     return allItems;
   }
 
+  String numberFormatter(int number){
+    String numberS = number.toString();
+    String formattedNumber = "";
+    int counter = 0;
+    if(numberS.length > 3){
+      for(int i = numberS.length - 1; i > -1 ; i--){
+        counter ++;
+        if(counter % 3 == 0){
+          formattedNumber = " ${numberS[i]}$formattedNumber";
+        }else{
+          formattedNumber = "${numberS[i]}$formattedNumber";
+        }
+      }
+      return formattedNumber;
+    }
+    else return numberS;
+  }
+
+
   void showCustomDialog(BuildContext context,Icon icon, String title, String message) {
     showDialog(
       context: context,

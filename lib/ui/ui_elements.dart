@@ -1,10 +1,12 @@
 import 'package:apartment_utility/models/text_editing_controllers.dart';
 import 'package:apartment_utility/models/utlility_items.dart';
+import 'package:apartment_utility/others/actions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class UIElements {
+  Actions_ actions = Actions_();
   double height = 8;
 
   Widget buildUtilityPlaceHolders(
@@ -228,14 +230,14 @@ class UIElements {
                   height: height,
                 ),
                 Text(
-                  "Past meter r.: ${item.pastMeterReading}",
+                  "Past meter r.: ${actions.numberFormatter(item.pastMeterReading)}",
                   style: TextStyle(color: Colors.black, fontSize: 15),
                 ),
                 SizedBox(
                   height: height,
                 ),
                 Text(
-                  "Spent: ${item.spent}",
+                  "Spent: ${actions.numberFormatter(item.spent)}",
                   style: TextStyle(color: Colors.red, fontSize: 15),
                 ),
               ],
@@ -247,21 +249,21 @@ class UIElements {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    "Price: ${item.cost}",
+                    "Price: ${actions.numberFormatter(item.cost)}",
                     style: TextStyle(color: Colors.black, fontSize: 15),
                   ),
                   SizedBox(
                     height: height,
                   ),
                   Text(
-                    "Meter r.: ${item.meterReading}",
+                    "Meter r.: ${actions.numberFormatter(item.meterReading)}",
                     style: TextStyle(color: Colors.black, fontSize: 15),
                   ),
                   SizedBox(
                     height: height,
                   ),
                   Text(
-                    "It costs: ${item.spentCost}",
+                    "It costs: ${actions.numberFormatter(item.spentCost)}",
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 15,
@@ -297,7 +299,7 @@ class UIElements {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Utilities cost: ${items.utilitiesCost}",
+                "Utilities cost: ${actions.numberFormatter(items.utilitiesCost)}",
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 15,
@@ -307,7 +309,7 @@ class UIElements {
                 height: height,
               ),
               Text(
-                "Apartment rent: ${items.rentCost}",
+                "Apartment rent: ${actions.numberFormatter(items.rentCost)}",
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 15,
@@ -317,7 +319,7 @@ class UIElements {
                 height: height,
               ),
               Text(
-                "Others: ${items.others}",
+                "Others: ${actions.numberFormatter(items.others)}",
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 15,
@@ -327,7 +329,7 @@ class UIElements {
                 height: height,
               ),
               Text(
-                "Total cost: ${items.totalCost}",
+                "Total cost: ${actions.numberFormatter(items.totalCost)}",
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 15,
